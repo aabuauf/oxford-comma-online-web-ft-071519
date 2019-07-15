@@ -12,4 +12,20 @@ describe "#oxford_comma" do
     expect(oxford_comma(["kiwi", "durian", "starfruit", "mangos", "dragon fruits"])).to eq("kiwi, durian, starfruit, mangos, and dragon fruits")
     expect(oxford_comma(["kiwi", "durian", "starfruit", "mangos", "dragon fruits", "lychees", "pomelos"])).to eq("kiwi, durian, starfruit, mangos, dragon fruits, lychees, and pomelos")
   end
+  
+  def oxford_comma(array)
+    if (array.length === 1)
+      return array.join
+    elsif (array.length === 2)
+      lastItem = array[array.length-1]
+      array.pop
+      return array.join(", ") + " and " + lastItem 
+    else
+      lastItem = array[array.length-1]
+      array.pop
+      return array.join(", ") + ", and " + lastItem
+    end
+    
+  end
+  
 end
